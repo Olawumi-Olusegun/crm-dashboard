@@ -63,11 +63,11 @@ const SearchAndFilterTable = () => {
                             <tr className="text-sm text-gray-500">
                                 {["name", "topic", "status", "created on"].map((heading) => (
                                     <th key={heading}
-                                        className="p-2 text-left cursor-pointer "
+                                        className="p-2 text-left cursor-pointer text-nowrap"
                                         // @ts-expect-error: remove strict type check
                                         onClick={() => handleSort(heading)}
                                     >
-                                        <div className="flex items-center gap-1">
+                                        <div className="flex items-center gap-1  text-nowrap">
                                             {heading.charAt(0).toUpperCase() + heading.slice(1)}
                                             {sortConfig.key === heading && (
                                                 <span className="flex items-center gap-1">
@@ -82,13 +82,13 @@ const SearchAndFilterTable = () => {
                         <tbody className="text-sm text-gray-500">
                             {filteredData.map((row) => (
                                 <tr key={row.id} className="border-b">
-                                    <td className="p-2 flex items-center gap-2">
+                                    <td className="p-2 flex items-center gap-2 text-nowrap">
                                         <input type="checkbox" name="" id="" className="p-2" />
                                         <span className="text-blue-500 text-sm">{row.name}</span>
                                     </td>
-                                    <td className="p-2">{row.topic}</td>
-                                    <td className="p-2">{row.status}</td>
-                                    <td className="p-2">{row.createdAt}</td>
+                                    <td className="p-2 text-nowrap">{row.topic}</td>
+                                    <td className="p-2 text-nowrap">{row.status}</td>
+                                    <td className="p-2 text-nowrap">{row.createdAt}</td>
                                 </tr>
                             ))}
                             {filteredData.length === 0 && (
