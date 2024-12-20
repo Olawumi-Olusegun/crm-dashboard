@@ -2,11 +2,11 @@ import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 
 const initialData = [
-    { id: 1, name: "Alice", topic: "React", status: "New", createdAt: "2023-12-01" },
-    { id: 2, name: "Bob", topic: "Vue", status: "New", createdAt: "2023-11-30" },
-    { id: 3, name: "Charlie", topic: "Angular", status: "New", createdAt: "2023-12-05" },
-    { id: 4, name: "David", topic: "Svelte", status: "New", createdAt: "2023-12-03" },
-    { id: 5, name: "Eve", topic: "React", status: "New", createdAt: "2023-11-28" },
+    { id: 1, name: "Winford Asha", topic: "Cafe A100 for commercial use", status: "New", createdAt: "2023-12-01" },
+    { id: 2, name: "Josia Love", topic: "Upgrading service plan", status: "New", createdAt: "2023-11-30" },
+    { id: 3, name: "Harison Cuttise", topic: "New roaster in distribution facility", status: "New", createdAt: "2023-12-05" },
+    { id: 4, name: "Jermaine Berret", topic: "Concern on current machines", status: "New", createdAt: "2023-12-03" },
+    { id: 5, name: "Alex Baker", topic: "Expanding business", status: "New", createdAt: "2023-11-28" },
 ];
 
 const SearchAndFilterTable = () => {

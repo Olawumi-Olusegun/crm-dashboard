@@ -74,162 +74,160 @@ const GoalsCard = () => {
 
     return (
         <>
-            <div
-                className="relative p-2 flex flex-col gap-y-3 border rounded-md shadow-xl transition-all duration-300 overflow-hidden"
-                style={{ height: openCard ? cardRef.current?.offsetHeight || 0 : "50px" }}
-            >
-                <div ref={cardRef} className="w-full">
-                    <div className="flex items-center gap-1 flex-wrap">
+            <div className="relative p-2 flex flex-col gap-y-3 border rounded-md shadow-xl">
+                <div className="w-full">
+                    <div className="flex items-center gap-1 flex-wrap py-3">
                         <h2 className="text-sm font-bold text-black/80 mr-5">
                             Hi Mona, <span className="text-indigo-400">68%</span> of goal
                             achieved and rest can be achieved by focusing on 20 top leads
                         </h2>
                     </div>
-                    <button onClick={() => setOpenCard((prevState) => !prevState)} className={`h-7 w-7 flex items-center justify-center bg-white hover:bg-gray-100 rounded-md rounded-tl-none absolute top-0 right-0 duration-300 ${openCard ? "rotate-180 " : ""}`}>
-                        <ChevronDown size={15} className="text-gray-500 " />
-                    </button>
-                    <div className="grid grid-cols-12 gap-1">
-                        <div className="col-span-12 lg:col-span-8 p-4">
-                            <p className="text-sm text-gray-500 my-2">
-                                Copilot has pinpointed 20 key leads that show strong purchase
-                                intent and are actively engaging. These leads need your focus.
-                            </p>
-                            <div className="relative group w-full">
+                    <div className="w-full transition-all duration-300 overflow-hidden" style={{ height: openCard ? cardRef.current?.offsetHeight || 0 : 0 }}>
+                        <div ref={cardRef} className="grid grid-cols-12 gap-1">
+                            <div className="col-span-12 lg:col-span-8 p-4">
+                                <p className="text-sm text-gray-500 my-2">
+                                    Copilot has pinpointed 20 key leads that show strong purchase
+                                    intent and are actively engaging. These leads need your focus.
+                                </p>
+                                <div className="relative group w-full">
 
-                                <div className="relative overflow-hidden group">
-                                    <div
-                                        className="grid gap-2 transition-transform duration-500 "
-                                        style={{
-                                            gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,
-                                            transform: `translateX(-${(currentIndex / items.length) * 100
-                                                }%)`,
-                                            width: `${(100 / itemsPerPage) * items.length}%`,
-                                        }}
-                                    >
-                                        {items.map((item) => (
-                                            <div
-                                                onClick={() => toggleModal("Goal")}
-                                                key={item.id}
-                                                className="flex flex-col gap-2 cursor-pointer border rounded-md p-2 bg-white"
-                                            >
-                                                <div className="flex items-center gap-2">
-                                                    <div className="h-8 w-8 rounded-full shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
-                                                        <img src="https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg" alt="user-profile" className="h-full w-full object-cover object-center " />
-                                                    </div>
-                                                    <div className="flex flex-col w-full">
-                                                        <h2 className="text-sm text-black/80 font-semibold">
-                                                            {item.name}
-                                                        </h2>
-                                                        <span className="text-xs text-gray-400">
-                                                            {item.role}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <div className="bg-blue-50/50 w-full rounded-md p-2 relative overflow-hidden">
-                                                    <div className="flex flex-col gap-2">
-                                                        <div className="flex items-center gap-2 w-[90%]">
-                                                            <MailPlus size={18} className="self-start text-gray-700" />
-                                                            <h2 className="text-xs font-bold text-black/90">
-                                                                Engage with {item.name}
-                                                            </h2>
+                                    <div className="relative overflow-hidden group">
+                                        <div
+                                            className="grid gap-2 transition-transform duration-500 "
+                                            style={{
+                                                gridTemplateColumns: `repeat(${items.length}, minmax(0, 1fr))`,
+                                                transform: `translateX(-${(currentIndex / items.length) * 100
+                                                    }%)`,
+                                                width: `${(100 / itemsPerPage) * items.length}%`,
+                                            }}
+                                        >
+                                            {items.map((item) => (
+                                                <div
+                                                    onClick={() => toggleModal("Goal")}
+                                                    key={item.id}
+                                                    className="flex flex-col gap-2 cursor-pointer border rounded-md p-2 bg-white"
+                                                >
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="h-8 w-8 rounded-full shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
+                                                            <img src="https://images.pexels.com/photos/3786525/pexels-photo-3786525.jpeg" alt="user-profile" className="h-full w-full object-cover object-center " />
                                                         </div>
-                                                        <p className="text-xs text-gray-500 line-clamp-2">{item.description}</p>
+                                                        <div className="flex flex-col w-full">
+                                                            <h2 className="text-sm text-black/80 font-semibold">
+                                                                {item.name}
+                                                            </h2>
+                                                            <span className="text-xs text-gray-400">
+                                                                {item.role}
+                                                            </span>
+                                                        </div>
                                                     </div>
-                                                    <button className="h-7 w-7 flex items-center justify-center bg-white rounded-md rounded-tl-none absolute top-0 right-0">
-                                                        <Sparkles size={15} className="text-blue-300 " />
-                                                    </button>
+                                                    <div className="bg-blue-50/50 w-full rounded-md p-2 relative overflow-hidden">
+                                                        <div className="flex flex-col gap-2">
+                                                            <div className="flex items-center gap-2 w-[90%]">
+                                                                <MailPlus size={18} className="self-start text-gray-700" />
+                                                                <h2 className="text-xs font-bold text-black/90">
+                                                                    Engage with {item.name}
+                                                                </h2>
+                                                            </div>
+                                                            <p className="text-xs text-gray-500 line-clamp-2">{item.description}</p>
+                                                        </div>
+                                                        <button className="h-7 w-7 flex items-center justify-center bg-white rounded-md rounded-tl-none absolute top-0 right-0">
+                                                            <Sparkles size={15} className="text-blue-300 " />
+                                                        </button>
+                                                    </div>
+                                                    <p className="text-xs text-gray-500 mt-auto">
+                                                        Expending business - High buying intents
+                                                    </p>
                                                 </div>
-                                                <p className="text-xs text-gray-500 mt-auto">
-                                                    Expending business - High buying intents
-                                                </p>
-                                            </div>
+                                            ))}
+                                        </div>
+                                    </div>
+
+                                    <button
+                                        onClick={prevSlide}
+                                        className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border rounded-full h-8 w-8 flex items-center justify-center shrink-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    >
+                                        <ChevronLeft />
+                                    </button>
+                                    <button
+                                        onClick={nextSlide}
+                                        className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border rounded-full h-8 w-8 flex items-center justify-center shrink-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                                    >
+                                        <ChevronRight />
+                                    </button>
+
+                                    <div className="flex justify-center mt-4">
+                                        {Array.from({ length: totalPages }).map((_, index) => (
+                                            <div
+                                                key={index}
+                                                onClick={() => setCurrentIndex(index * itemsPerPage)}
+                                                className={`h-[2px] w-5 rounded-full mx-1 cursor-pointer ${Math.floor(currentIndex / itemsPerPage) === index
+                                                    ? "bg-indigo-500"
+                                                    : "bg-gray-300"
+                                                    }`}
+                                            />
                                         ))}
                                     </div>
-                                </div>
 
-                                <button
-                                    onClick={prevSlide}
-                                    className="absolute -left-3 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border rounded-full h-8 w-8 flex items-center justify-center shrink-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                >
-                                    <ChevronLeft />
-                                </button>
-                                <button
-                                    onClick={nextSlide}
-                                    className="absolute -right-3 top-1/2 transform -translate-y-1/2 bg-white text-gray-600 border rounded-full h-8 w-8 flex items-center justify-center shrink-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                >
-                                    <ChevronRight />
-                                </button>
-
-                                <div className="flex justify-center mt-4">
-                                    {Array.from({ length: totalPages }).map((_, index) => (
-                                        <div
-                                            key={index}
-                                            onClick={() => setCurrentIndex(index * itemsPerPage)}
-                                            className={`h-[2px] w-5 rounded-full mx-1 cursor-pointer ${Math.floor(currentIndex / itemsPerPage) === index
-                                                ? "bg-indigo-500"
-                                                : "bg-gray-300"
-                                                }`}
-                                        />
-                                    ))}
                                 </div>
 
                             </div>
+                            <div className="col-span-12 lg:col-span-4 p-4 relative">
+                                <p className="text-sm text-gray-500 my-2">
+                                    Other key activities
+                                </p>
+                                <div className="absolute h-[85%] top-1/2 -translate-y-1/2 w-px bg-gray-200 left-0 hidden lg:block"></div>
+                                <div className="flex flex-col gap-2 w-full ">
+                                    <div className="flex flex-col gap-2 w-full rounded-md shadow-sm border-b p-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="h-8 w-8 rounded-full self-start shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
+                                                <img src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center" />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <h2 className="text-xs font-bold text-black/90">Cafe A100 woodand bank</h2>
+                                                <p className="text-gray-500 text-xs">Woodand . bank $280,000 . 8 days to close</p>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-px">
+                                            <div className="flex-1 flex items-center gap-1 p-1.5 rounded-md bg-gray-100">
+                                                <MailPlus size={14} className="self-start text-gray-700" />
+                                                <span className="text-xs text-gray-500">Review draft and repliesto Chris Naido</span>
+                                            </div>
+                                            <button className="h-7 w-7 shrink-0 flex items-center justify-center bg-white rounded-md rounded-tl-none ml-auto -mr-1.5">
+                                                <Sparkles size={15} className="text-blue-300 " />
+                                            </button>
+                                        </div>
+                                    </div>
 
-                        </div>
-                        <div className="col-span-12 lg:col-span-4 p-4 relative">
-                            <p className="text-sm text-gray-500 my-2">
-                                Other key activities
-                            </p>
-                            <div className="absolute h-[85%] top-1/2 -translate-y-1/2 w-px bg-gray-200 left-0 hidden lg:block"></div>
-                            <div className="flex flex-col gap-2 w-full ">
-                                <div className="flex flex-col gap-2 w-full rounded-md shadow-sm border-b p-2">
-                                    <div className="flex items-center gap-2">
-                                        <div className="h-8 w-8 rounded-full self-start shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
-                                            <img src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center" />
+                                    <div className="flex flex-col gap-2 w-full rounded-md shadow-sm border-b p-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="h-8 w-8 rounded-full self-start shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
+                                                <img src="https://images.pexels.com/photos/269126/pexels-photo-269126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center " />
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <h2 className="text-xs font-bold text-black/90">Partnership opportunities for Fabrican </h2>
+                                                <p className="text-gray-500 text-xs">Fabrican . bank $500,000 . 12 days to close</p>
+                                            </div>
                                         </div>
-                                        <div className="flex flex-col">
-                                            <h2 className="text-xs font-bold text-black/90">Cafe A100 woodand bank</h2>
-                                            <p className="text-gray-500 text-xs">Woodand . bank $280,000 . 8 days to close</p>
+                                        <div className="flex items-center gap-px">
+                                            <div className="flex-1 flex items-center gap-1 p-1.5 rounded-md bg-gray-100">
+                                                <MailPlus size={14} className="self-start text-gray-700" />
+                                                <span className="text-xs text-gray-500 line-clamp-1">Prepare me for {"Fabrican's"} key stakeholders meeting</span>
+                                            </div>
+                                            <button className="h-7 w-7 shrink-0 flex items-center justify-center bg-white rounded-md rounded-tl-none ml-auto -mr-1.5">
+                                                <Sparkles size={15} className="text-blue-300 " />
+                                            </button>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-px">
-                                        <div className="flex-1 flex items-center gap-1 p-1.5 rounded-md bg-gray-100">
-                                            <MailPlus size={14} className="self-start text-gray-700" />
-                                            <span className="text-xs text-gray-500">Review draft and repliesto Chris Naido</span>
-                                        </div>
-                                        <button className="h-7 w-7 shrink-0 flex items-center justify-center bg-white rounded-md rounded-tl-none ml-auto -mr-1.5">
-                                            <Sparkles size={15} className="text-blue-300 " />
-                                        </button>
-                                    </div>
+                                    <Link href={"#"} className="text-blue-800 text-xs underline font-medium">Show all key activities</Link>
+
                                 </div>
-
-                                <div className="flex flex-col gap-2 w-full rounded-md shadow-sm border-b p-2">
-                                    <div className="flex items-center gap-2">
-                                        <div className="h-8 w-8 rounded-full self-start shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
-                                            <img src="https://images.pexels.com/photos/269126/pexels-photo-269126.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center " />
-                                        </div>
-                                        <div className="flex flex-col">
-                                            <h2 className="text-xs font-bold text-black/90">Partnership opportunities for Fabrican </h2>
-                                            <p className="text-gray-500 text-xs">Fabrican . bank $500,000 . 12 days to close</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex items-center gap-px">
-                                        <div className="flex-1 flex items-center gap-1 p-1.5 rounded-md bg-gray-100">
-                                            <MailPlus size={14} className="self-start text-gray-700" />
-                                            <span className="text-xs text-gray-500 line-clamp-1">Prepare me for {"Fabrican's"} key stakeholders meeting</span>
-                                        </div>
-                                        <button className="h-7 w-7 shrink-0 flex items-center justify-center bg-white rounded-md rounded-tl-none ml-auto -mr-1.5">
-                                            <Sparkles size={15} className="text-blue-300 " />
-                                        </button>
-                                    </div>
-                                </div>
-                                <Link href={"#"} className="text-blue-800 text-xs underline font-medium">Show all key activities</Link>
-
                             </div>
                         </div>
                     </div>
-
                 </div>
+                <button onClick={() => setOpenCard((prevState) => !prevState)} className={`h-7 w-7 flex items-center justify-center bg-white hover:bg-gray-100 rounded-md rounded-tl-none absolute top-0 right-0 duration-300 ${openCard ? "rotate-180 " : ""}`}>
+                    <ChevronDown size={15} className="text-gray-500 " />
+                </button>
             </div>
             {
                 showModal === "Goal" && (
