@@ -1,8 +1,12 @@
-import { Sparkles, ThumbsDown, ThumbsUp } from "lucide-react";
-import { useState } from "react";
+import { ChevronDown, Sparkles, ThumbsDown, ThumbsUp } from "lucide-react";
+import { useRef, useState } from "react";
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState("Engage");
+    const [openCard, setOpenCard] = useState(false);
+
+    const cardRef = useRef<HTMLDivElement | null>(null)
+
 
     return (
         <div className="w-full">
@@ -94,9 +98,16 @@ const Tabs = () => {
                         </div>
 
                     </div>
-                    <div className="flex flex-col gap p-2 border rounded-md mt-3">
-                        <h2 className="text-xs font-bold text-black/80">About Jane</h2>
-                        <p className="text-xs text-gray-600">Jane may be interested in upgrading expresso machine for her instore coffee shops, Jane may be interested in upgrading expresso machine for her instore coffee shops, Jane may be interested in upgrading expresso machine for her instore coffee shops</p>
+                    <div className="border rounded-md mt-3 relative p-2 w-full">
+                        <h2 className="text-xs font-bold text-black/80 py-2">About Jane</h2>
+                        <div className="w-full flex flex-col gap overflow-hidden transition-all duration-300" style={{ height: openCard ? cardRef.current?.offsetHeight || 0 : 0 }}>
+                            <div ref={cardRef} className="w-full">
+                                <p className="text-xs text-gray-600">Jane may be interested in upgrading expresso machine for her instore coffee shops, Jane may be interested in upgrading expresso machine for her instore coffee shops, Jane may be interested in upgrading expresso machine for her instore coffee shops</p>
+                            </div>
+                        </div>
+                        <button onClick={() => setOpenCard((prevState) => !prevState)} className={`h-7 w-7 flex items-center justify-center bg-white hover:bg-gray-100 rounded-md rounded-tl-none absolute top-0 right-0 duration-300 ${openCard ? "rotate-180 " : ""}`}>
+                            <ChevronDown size={15} className="text-gray-500 " />
+                        </button>
                     </div>
                 </div>}
                 {activeTab === "Research" && <div className="flex flex-col gap-3 h-dvh lg:h-full">
