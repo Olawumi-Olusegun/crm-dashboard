@@ -1,3 +1,4 @@
+import { ChevronDown, ChevronUp } from "lucide-react";
 import React, { useState } from "react";
 
 const initialData = [
@@ -68,7 +69,7 @@ const SearchAndFilterTable = () => {
                                         {heading.charAt(0).toUpperCase() + heading.slice(1)}
                                         {sortConfig.key === heading && (
                                             <span>
-                                                {sortConfig.direction === "ascending" ? "▲" : "▼"}
+                                                {sortConfig.direction === "ascending" ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                                             </span>
                                         )}
                                     </th>

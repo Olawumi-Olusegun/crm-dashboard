@@ -1,5 +1,5 @@
 "use client"
-import { Activity, BellPlus, Book, ChartCandlestick, Clock5, CreditCard, Headset, House, LayoutDashboard, Menu, Microchip, Notebook, PackageSearch, ParkingMeter, Receipt, ShoppingBag, UserRound, UsersRound, X } from "lucide-react"
+import { Activity, BellPlus, Book, ChartCandlestick, Clock5, CreditCard, Headset, House, LayoutDashboard, Menu, Notebook, PackageSearch, ParkingMeter, Receipt, ShoppingBag, UserRound, UsersRound, X } from "lucide-react"
 import Link from "next/link"
 import { useState } from "react"
 import { useModal } from "./context/ModalContext";
