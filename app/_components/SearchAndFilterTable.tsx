@@ -64,7 +64,7 @@ const SearchAndFilterTable = () => {
                                 {["name", "topic", "status", "created on"].map((heading) => (
                                     <th key={heading}
                                         className="p-2 text-left cursor-pointer "
-                                        // @ts-ignore:next-line
+                                        // @ts-expect-error
                                         onClick={() => handleSort(heading)}
                                     >
                                         <div className="flex items-center gap-1">

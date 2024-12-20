@@ -174,7 +174,7 @@ const GoalsCard = () => {
                             <div className="flex flex-col gap-2 w-full rounded-md shadow-sm border-b p-2">
                                 <div className="flex items-center gap-2">
                                     <div className="h-8 w-8 rounded-full self-start shrink-0 bg-gray-300 flex items-center justify-center overflow-hidden">
-                                        <img src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center " />
+                                        <img src="https://images.pexels.com/photos/302902/pexels-photo-302902.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="user-profile" className="h-full w-full object-cover object-center" />
                                     </div>
                                     <div className="flex flex-col">
                                         <h2 className="text-xs font-bold text-black/90">Cafe A100 woodand bank</h2>
@@ -205,7 +205,7 @@ const GoalsCard = () => {
                                 <div className="flex items-center gap-px">
                                     <div className="flex-1 flex items-center gap-1 p-1.5 rounded-md bg-gray-100">
                                         <MailPlus size={14} className="self-start text-gray-700" />
-                                        <span className="text-xs text-gray-500 line-clamp-1">Prepare me for Fabrican's key stakeholders meeting</span>
+                                        <span className="text-xs text-gray-500 line-clamp-1">Prepare me for {"Fabrican's"} key stakeholders meeting</span>
                                     </div>
                                     <button className="h-7 w-7 shrink-0 flex items-center justify-center bg-white rounded-md rounded-tl-none ml-auto -mr-1.5">
                                         <Sparkles size={15} className="text-blue-300 " />
