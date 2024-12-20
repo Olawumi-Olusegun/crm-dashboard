@@ -63,15 +63,18 @@ const SearchAndFilterTable = () => {
                             <tr className="text-sm text-gray-500">
                                 {["name", "topic", "status", "created on"].map((heading) => (
                                     <th key={heading}
-                                        className="p-2 text-left cursor-pointer"
-                                        onClick={() => handleSort(heading as any)}
+                                        className="p-2 text-left cursor-pointer "
+                                        // @ts-ignore:next-line
+                                        onClick={() => handleSort(heading)}
                                     >
-                                        {heading.charAt(0).toUpperCase() + heading.slice(1)}
-                                        {sortConfig.key === heading && (
-                                            <span>
-                                                {sortConfig.direction === "ascending" ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
-                                            </span>
-                                        )}
+                                        <div className="flex items-center gap-1">
+                                            {heading.charAt(0).toUpperCase() + heading.slice(1)}
+                                            {sortConfig.key === heading && (
+                                                <span className="flex items-center gap-1">
+                                                    {sortConfig.direction === "ascending" ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+                                                </span>
+                                            )}
+                                        </div>
                                     </th>
                                 ))}
                             </tr>
