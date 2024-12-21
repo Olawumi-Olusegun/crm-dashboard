@@ -4,17 +4,20 @@ import Link from "next/link"
 import { useState } from "react"
 import { useModal } from "./context/ModalContext";
 import Modal from "./Modal";
+import { useSidebar } from "./context/SidebarContext";
 
 type DropdownMenu = "Recents" | "Pinned" | undefined;
 
 const Sidebar = () => {
     const [openDropdown, setOpenDropdown] = useState<DropdownMenu>(undefined)
+    const { showSidebar } = useSidebar();
 
     const { toggleModal, showModal } = useModal();
 
+
     return (
         <>
-            <aside className={`hidden fixed w-52 h-[calc(100%-48px)] mt-12 top-0 left-0 pt-2 bg-[#efefef] border-r border-r-gray-200 text-gray-700 md:translate-x-0 transform transition-transform duration-300 ease-in-out lg:flex flex-col gap-2 z-50 lg:translate-x-0 overflow-y-scroll scrollbar-scroll ${openDropdown ? "translate-x-0" : "-translate-x-full"} `}>
+            <aside className={`-translate-x-full fixed w-52 h-[calc(100%-48px)] mt-12 top-0 left-0 pt-2 bg-[#efefef] border-r border-r-gray-200 text-gray-700 md:translate-x-0 transform transition-transform duration-300 ease-in-out lg:flex flex-col gap-2 z-50 lg:translate-x-0 overflow-y-scroll scrollbar-scroll ${showSidebar ? "translate-x-0 block" : "-translate-x-full "} `}>
                 <button className="ml-3 hover:bg-gray-200 rounded-sm duration-300 h-7 w-7 shrink-0 flex items-center justify-center">
                     <Menu size={18} className="text-gray-500" />
                 </button>
