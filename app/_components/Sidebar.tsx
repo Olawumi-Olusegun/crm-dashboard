@@ -193,7 +193,7 @@ const Sidebar = () => {
 
             {
                 showModal === "Agent" && (
-                    <Modal>
+                    <Modal className="bg-white bg-opacity-5 backdrop-blur-md">
                         <div className="w-full h-dvh lg:h-auto border-2 rounded-md bg-white p-[2px] overflow-auto lg:overflow-hidden ">
                             <div className="p-3 bg-white flex flex-col gap-5 rounded-md  lg:h-full flex-1">
                                 <div className="flex flex-wrap items-center gap-1">

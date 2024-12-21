@@ -6,7 +6,7 @@ interface ModalProps extends HTMLAttributes<HTMLDivElement> {
     children: ReactNode;
 }
 
-const Modal = ({ children }: ModalProps) => {
+const Modal = ({ children, className, ...props }: ModalProps) => {
     const { showModal, toggleModal } = useModal();
     const modalRef = useRef<HTMLDivElement>(null);
 
@@ -37,7 +37,8 @@ const Modal = ({ children }: ModalProps) => {
                     toggleModal(undefined);
                 }
             }}
-            className="fixed z-50 inset-0 min-h-dvh w-full flex items-center justify-center"
+            className={`fixed z-50 inset-0 min-h-dvh w-full flex items-center justify-center ${className}`}
+            {...props}
         >
             <div
                 onClick={(event) => event.stopPropagation()}
