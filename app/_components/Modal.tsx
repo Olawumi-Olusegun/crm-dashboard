@@ -31,13 +31,14 @@ const Modal = ({ children, className, ...props }: ModalProps) => {
     if (!showModal) return null;
 
     return (
-        <div ref={modalRef}
+        <div
+            ref={modalRef}
             onClick={(event) => {
                 if (modalRef.current && modalRef.current.contains(event.target as Node)) {
                     toggleModal(undefined);
                 }
             }}
-            className={`fixed z-50 inset-0 min-h-dvh w-full flex items-center justify-center ${className}`}
+            className={`fixed z-[100] inset-0 min-h-dvh w-full flex items-center justify-center ${className}`}
             {...props}
         >
             <div

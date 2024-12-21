@@ -9,7 +9,7 @@ const Header = () => {
     const { toggleSidebar } = useSidebar();
     return (
         <>
-            <div className="fixed left-0 right-0 top-0 h-12 z-[999] w-full bg-[#000f28] flex items-center justify-between px-5">
+            <div className="fixed left-0 right-0 top-0 h-12 z-[60] w-full bg-[#000f28] flex items-center justify-between px-5">
                 <div className="flex items-center gap-1.5">
                     <div className="flex items-center gap-1.5">
                         <button
