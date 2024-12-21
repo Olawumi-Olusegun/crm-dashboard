@@ -1,5 +1,5 @@
 "use client";
-import { ChevronDown, ChevronLeft, ChevronRight, MailPlus, Pencil, SendHorizontal, Sparkles, ThumbsDown, ThumbsUp, X } from "lucide-react";
+import { ChevronDown, ChevronLeft, ChevronRight, MailPlus, Pencil, SendHorizontal, Sparkles, ThumbsDown, ThumbsUp, Timer, X } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import SearchAndFilterTable from "./SearchAndFilterTable";
@@ -81,6 +81,21 @@ const GoalsCard = () => {
                         achieved and rest can be achieved by focusing on 20 top leads
                     </h2>
                     <div className="flex flex-col gap-1 w-full flex-1 h-2 self-start">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-1">
+                                <Timer size={12} className="text-gray-500" />
+                                <span className="text-[9px] text-gray-500">1 month until quarter 4 ends</span>
+                            </div>
+                            <div className="flex items-center gap-6 mr-5 relative">
+                                <div className="flex items-center gap-1">
+                                    <span className="text-[9px] text-black font-semibold">Target $45 million</span>
+                                    <div className="w-[1.3px] h-6 shrink-0 bg-gray-500 absolute -left-2 top-0"></div>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                    <span className="text-[9px] text-gray-500">68% of target achieved</span>
+                                </div>
+                            </div>
+                        </div>
                         <div className="w-full shrink-0 bg-gray-200 h-2 rounded-full overflow-hidden flex items-center lg:mr-6">
                             <div className="w-[20%] h-2 bg-green-200 "></div>
                             <div className="w-[20%] h-2 bg-blue-200 "></div>
